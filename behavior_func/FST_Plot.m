@@ -12,7 +12,7 @@ xticks([1 2])
 ylim([0 1]);
 xticklabels({'CT13','T24'})
 xlabel('cycle')
-ylabel('duration in open hand/total duration')
+ylabel('duration in move/total duration')
 e1=errorbar(1.1,mean(data.CT13.FS.duration(1,:)),std(data.CT13.FS.duration(1,:)),'o','MarkerSize',10,'LineWidth',2,'MarkerEdgeColor','#A2142F');
 e1.Color='#A2142F';
 e2=errorbar(2.1,mean(data.T24.FS.duration(1,:)),std(data.T24.FS.duration(1,:)),'o','MarkerSize',10,'LineWidth',2,'MarkerEdgeColor','#0072BD');
@@ -34,7 +34,7 @@ xticks([1 2])
 ylim([0 1]);
 xticklabels({'CT13','T24'})
 xlabel('cycle')
-ylabel('distance in open hand/total distance')
+ylabel('frequency move/total')
 e1=errorbar(1.1,mean(data.CT13.FS.frequency(1,:)),std(data.CT13.FS.frequency(1,:))...
     ,'o','MarkerSize',10,'LineWidth',2,'MarkerEdgeColor','#A2142F');
 e1.Color='#A2142F';
