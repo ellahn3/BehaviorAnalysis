@@ -1,6 +1,20 @@
 function newdata = Converter(path, file)
-%Function that converts a CSV file to a struct
-%   This function takes a CSV file and converts it into a MATLAB struct.
+%CONVERTER Converts a CSV file to a structured MATLAB data (.mat) file.
+%   The CSV data table should have  three columns that determine the
+%   hierarchy of the resulting struct. Each row in the CSV corresponds to a
+%   nested struct in the resulting MATLAB struct.
+%
+%   Parameters:
+%       path: String representing the path to the directory where the CSV file is located.
+%       file: String representing the name of the CSV file to be converted.
+%
+%   Returns:
+%       newdata: A MATLAB struct containing the converted data with a nested structure.
+%
+%   Note: This function is designed to be very general and can handle diverse CSV data tables with three 
+%   columns to create a nested MATLAB struct. It is ideal for converting structured data into a more 
+%   organized and easily accessible format.
+
 data = readtable(pdata);% reading the CSV data table
 n = size(data);    %size of the data table
 newdata = struct();    % initializing a struct to store the converted data
