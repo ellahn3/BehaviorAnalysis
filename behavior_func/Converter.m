@@ -5,11 +5,11 @@ function newdata = Converter(path, file)
 %   nested struct in the resulting MATLAB struct.
 %
 %   Parameters:
-%       path: String representing the path to the directory where the CSV file is located.
-%       file: String representing the name of the CSV file to be converted.
+%       path=> string representing the path to the directory where the CSV file is located.
+%       file=> string representing the name of the CSV file to be converted.
 %
 %   Returns:
-%       newdata: A MATLAB struct containing the converted data with a nested structure.
+%       newdata=> MATLAB struct containing the converted data with a nested structure.
 %
 %   Note: This function is designed to be very general and can handle diverse CSV data tables with three 
 %   columns to create a nested MATLAB struct. It is ideal for converting structured data into a more 
