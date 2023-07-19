@@ -44,8 +44,9 @@ function varargout=shadedErrorBar(x,y,errBar,lineProps,transparent)
 % hold off
 %
 %
-% Rob Campbell - November 2009
-
+%   Author: Shai Sabbah & Rob Campbell 
+%   Version: 11.0
+%   Last Updated: November 2009
 
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
