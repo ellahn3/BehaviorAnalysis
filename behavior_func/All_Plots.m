@@ -1,6 +1,5 @@
 function [] = All_Plots(data)
-%ploting for all the tests
-%   Detailed explanation goes here
+
 
 f1=figure;
 set(f1, 'color', [1 1 1]);
