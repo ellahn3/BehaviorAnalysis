@@ -8,9 +8,9 @@ function [] = plotGroupComparison(data, variableName, ylabelText)
 %   and effect size) are displayed as subtitles below each subplot.
 %
 %   Parameters:
-%       data=>        the data struct containing information about the two groups and their variables.
-%       variableName=> string representing the variable to analyze in the data struct.
-%       ylabelText=>   string representing the label for the y-axis in the plot.
+%       data- struct containing information about the two groups and their variables.
+%       variableName- string representing the variable to analyze in the data struct.
+%       ylabelText-string representing the label for the y-axis in the plot.
 %
 %   Note: This function is designed to be very general and can handle diverse data structures, making it
 %   suitable for a wide range of data analysis tasks. Users can customize the input data structure to 
