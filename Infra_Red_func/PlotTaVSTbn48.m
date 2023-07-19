@@ -1,6 +1,28 @@
 function [] = PlotTaVSTbn48(data,Ta,Tb,beginT24)
-%basic run with a 24 hour slot
-%   Detailed explanation goes here
+% PlotTaVSTbn48 - Plots mean Ta and Tb for each light cycle against 24-hour periods.
+%
+%   The function takes data from the input table and performs preprocessing to
+%   select relevant columns and remove preceeding measurements before starting
+%   the cycle from 8 am. It then normalizes activity levels for each cycle separately.
+%   The function plots mean Ta and Tb for each light cycle with each row corresponding
+%   to 24 hours. It prepares the light cycle according to the specified Ta and Tb values.
+%   Parameters:
+%       data- table containing the data to be plotted.
+%       Ta- string representing the Ta light cycle.
+%       Tb- string representing the Tb light cycle.
+%       beginT24- The number of days with baseline T24.
+%
+%
+%   Note: This function generates two separate plots, one for Ta and the other
+%   for Tb, with each row representing 48-hour periods. The function also
+%   includes light cycle preparation, smoothing, and data reshaping for plotting.
+%
+%   See also:
+%       readtable, reshape, smoothdata, max, find, contains, area, bar
+%
+%   Author: Ella Hanzin
+%   Version: 1.0
+%   Last Updated: 09-Jul-2023
 
 %% prep for data analysis
 %take from file the relevent columns 
