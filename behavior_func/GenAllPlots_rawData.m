@@ -1,6 +1,7 @@
 function [] = GenAllPlots_rawData(data,yaxlab)
 % GENALLPLOTS_RAWDATA - Generate all plots for raw data comparison.
 %
+%   GenAllPlots_rawData(data, yaxlab)
 %   This function generates all plots for raw data comparison. It takes the raw data
 %   stored in the 'data' structure and the ylabel texts stored in the 'yaxlab' structure
 %   for each test and component. The function creates grouped bar plots with error bars
@@ -12,8 +13,6 @@ function [] = GenAllPlots_rawData(data,yaxlab)
 %   Inputs:
 %     data - A structure containing raw data for different tests, components, and groups.
 %     yaxlab - A structure containing ylabel texts for different tests and components.
-%
-%   GenAllPlots_rawData(data, yaxlab)
 %
 % Author: Ella Hanzin
 % Version: 1.0

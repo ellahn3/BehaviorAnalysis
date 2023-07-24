@@ -1,5 +1,7 @@
 function [] = GenAll_Plots(data,yaxlab)
 % GENALL_PLOTS - Generate all plots for data comparison.
+%
+%   GenAll_Plots(data, yaxlab)
 %   This function generates all plots for data comparison. It takes the data stored in
 %   the 'data' structure and the ylabel texts stored in the 'yaxlab' structure for each
 %   test and component. The function creates grouped bar plots with error bars to
@@ -8,7 +10,6 @@ function [] = GenAll_Plots(data,yaxlab)
 %   components, while the 'yaxlab' structure should provide ylabel texts corresponding
 %   to each test and component being compared.
 %
-%   GenAll_Plots(data, yaxlab)
 %   Inputs:
 %     data - A structure containing data for different tests, components, and groups.
 %     yaxlab - A structure containing ylabel texts for different tests and components.

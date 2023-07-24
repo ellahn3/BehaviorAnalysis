@@ -1,18 +1,23 @@
 function [] = MyPlot(group1Data, group2Data, Groups, variableName, component, ylabelText)
-% MyPlot - Generates a comparison plot between two groups based on their data.
+% MYPLOT - Plot grouped data comparison with error bars and t-test results.
 %
-%   The function plots data points for each group as markers on the x-axis,
-%   with the mean and standard deviation of each group's data displayed using 
-%   error bars. The x-axis is labeled with the names of the groups, and the 
-%   y-axis is labeled with the specified ylabelText (e.g., percentage).
+%   MyPlot(group1Data, group2Data, Groups, variableName, component, ylabelText)
+%   Inputs:
+%     group1Data - A column vector representing the data for group 1.
+%     group2Data - A column vector representing the data for group 2.
+%     Groups - A cell array containing the names of the two groups being compared.
+%     variableName - A string representing the name of the variable being compared.
+%     component - A string representing the component being compared.
+%     ylabelText - A string representing the label for the y-axis.
 %
-%   Parameters:
-%       group1Data- vector of group 1 for the specific variable and component.
-%       group2Data- vector of group 2 for the specific variable and component.
-%       Groups- cell array of strings representing the names of the two groups being compared.
-%       variableName- string representing the variable being analyzed.
-%       component- string representing the specific component within the variable being analyzed.
-%       ylabelText- string representing the label for the y-axis in the plot.
+%   This function plots a grouped comparison of data with error bars and t-test results.
+%   It takes the data for each group, the group names, and additional information such
+%   as the variable name and component being compared. The function plots the data
+%   points for each group with markers, computes and plots the mean and standard
+%   deviation using error bars, and performs a permutation t-test between the two groups.
+%   The t-test results, including the p-value, observed difference, and effect size, are
+%   displayed as a subtitle below the plot. The function provides insights into the data
+%   comparison between the two groups for a specific variable and component.
 %
 %   Note: This function generates a simple comparison plot with error bars, 
 %   comparing two groups (e.g., experimental vs. control) for a specific 
