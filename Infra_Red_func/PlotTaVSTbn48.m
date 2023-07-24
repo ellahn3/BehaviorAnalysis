@@ -1,4 +1,4 @@
-function [] = PlotTaVSTbn48(data,Ta,Tb,beginT24)
+function [] = PlotTaVSTbn48(data,Ta,Tb,beginT24,colors)
 % PlotTaVSTbn48 - Plots mean Ta and Tb for each light cycle against 24-hour periods.
 %
 %   The function takes data from the input table and performs preprocessing to
@@ -137,10 +137,10 @@ for i=1:2
         ax=axes('Position',[.05 axPos(nn) .90 rowh],'Color','none',...
             'XTick',[],'YTick',[]); axis off; hold on;
         if contains(T,'CT13') && nn>=beginT24(i)
-            area(cycle2{i}(:,nn),'FaceColor','y','LineStyle','none');%yellow ereas
-            area(cycle2{i}(1:numMin,nn),'FaceColor','c','LineStyle','none');%blue ereas
+            area(cycle2{i}(:,nn),'FaceColor',colors(1),'LineStyle','none');%yellow ereas
+            area(cycle2{i}(1:numMin,nn),'FaceColor',colors(2),'LineStyle','none');%blue ereas
         else
-            area(cycle2{i}(:,nn),'FaceColor','y','LineStyle','none');%yellow ereas
+            area(cycle2{i}(:,nn),'FaceColor',colors(1),'LineStyle','none');%yellow ereas
         end
         axis(ax,'tight')
     end
