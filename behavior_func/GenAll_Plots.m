@@ -1,4 +1,4 @@
-function [] = GenAll_Plots(data)
+function [] = GenAll_Plots(data,yaxlab)
 % GenAll_Plots - Generates comparison plots for multiple tests and
 % components on one figure
 %
@@ -45,11 +45,11 @@ for i=1:numTests
 
     subplot(2, numTests, i);
     hold on
-    MyPlot(group1_comp1_data, group2_comp1_data, groupNames, testName, componentNames{1}, '%')
+    MyPlot(group1_comp1_data, group2_comp1_data, groupNames, testName, componentNames{1}, yaxlab.(testName){1})
 
     subplot(2, numTests, i + numTests);
     hold on
-    MyPlot(group1_comp2_data, group2_comp2_data, groupNames, testName, componentNames{2}, '%')
+    MyPlot(group1_comp2_data, group2_comp2_data, groupNames, testName, componentNames{2}, yaxlab.(testName){2})
 end
 
 end
