@@ -37,7 +37,7 @@ for i=1:n
     subplot(1, n, i);
     hold on
     % using MyPlot function to plot and perform t-tests for the current component
-    MyPlot(group1_component1_data,group2_component1_data,groups,variableName,component,ylabelText)
+    MyPlot(group1_component1_data,group2_component1_data,groups,variableName,component,ylabelText{i})
 end
 
 end
