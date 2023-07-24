@@ -1,18 +1,17 @@
 function [] = GenAll_Plots(data,yaxlab)
-% GenAll_Plots - Generates comparison plots for multiple tests and
-% components on one figure
+% GENALL_PLOTS - Generate all plots for data comparison.
+%   This function generates all plots for data comparison. It takes the data stored in
+%   the 'data' structure and the ylabel texts stored in the 'yaxlab' structure for each
+%   test and component. The function creates grouped bar plots with error bars to
+%   compare the means of different groups for each test and component combination.
+%   The 'data' structure should be organized with nested fields for groups, tests, and
+%   components, while the 'yaxlab' structure should provide ylabel texts corresponding
+%   to each test and component being compared.
 %
-%   The function creates a figure containing multiple subplots to compare the data
-%   between two groups for different tests and components. Each subplot represents
-%   a specific test-component combination and displays data points for each group
-%   with error bars representing the mean and standard deviation. The x-axis is
-%   labeled with the names of the tests, and the y-axis is labeled with the
-%   measurement unit (percentage in this case).
-%
-%   Parameters:
-%       data: A struct containing information about the two groups and their tests
-%             and components. The data should be organized in a specific structure
-%             for this function to work correctly.
+%   GenAll_Plots(data, yaxlab)
+%   Inputs:
+%     data - A structure containing data for different tests, components, and groups.
+%     yaxlab - A structure containing ylabel texts for different tests and components.
 %
 %   Note: This function assumes that the input data struct 'data' contains two
 %   groups, each with fields representing different tests. For each test, there

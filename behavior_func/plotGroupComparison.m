@@ -1,16 +1,19 @@
 function [] = plotGroupComparison(data, variableName, ylabelText)
-% PLOTGROUPCOMPARISON Generates a comparison plot between two groups based on their data.
+% PLOTGROUPCOMPARISON - Plot group comparison for a specific variable.
 %
-%   The function plots data points for each group as markers on the x-axis, with the mean and standard 
-%   deviation of each group's data displayed using error bars. The x-axis is labeled with the names of 
-%   the two groups. Additionally, the function performs a permutation t-test to compare the two groups' 
-%   data for 'component1' and 'component2', and the results of the t-tests (p-value, observed difference, 
-%   and effect size) are displayed as subtitles below each subplot.
+%   plotGroupComparison(data, variableName, ylabelText)
+%   This function plots group comparisons for a specific variable. It takes the data
+%   stored in the 'data' structure, the name of the variable to be plotted, and the
+%   corresponding ylabel texts for each component. The function creates a subplot for
+%   each component within the variable and calls the 'MyPlot' function to generate
+%   grouped bar plots with error bars, comparing the means of different groups.
+%   The 'data' structure should be organized with nested fields for groups, variables,
+%   and components.
 %
-%   Parameters:
-%       data- struct containing information about the two groups and their variables.
-%       variableName- string representing the variable to analyze in the data struct.
-%       ylabelText-string representing the label for the y-axis in the plot.
+%   Inputs:
+%     data - A structure containing data for different groups and variables.
+%     variableName - A string representing the name of the variable to be plotted.
+%     ylabelText - A cell array containing ylabel texts for each component.
 %
 %   Note: This function is designed to be very general and can handle diverse data structures, making it
 %   suitable for a wide range of data analysis tasks. Users can customize the input data structure to 
