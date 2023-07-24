@@ -2,14 +2,6 @@ function [] = MyPlot(group1Data, group2Data, Groups, variableName, component, yl
 % MYPLOT - Plot grouped data comparison with error bars and t-test results.
 %
 %   MyPlot(group1Data, group2Data, Groups, variableName, component, ylabelText)
-%   Inputs:
-%     group1Data - A column vector representing the data for group 1.
-%     group2Data - A column vector representing the data for group 2.
-%     Groups - A cell array containing the names of the two groups being compared.
-%     variableName - A string representing the name of the variable being compared.
-%     component - A string representing the component being compared.
-%     ylabelText - A string representing the label for the y-axis.
-%
 %   This function plots a grouped comparison of data with error bars and t-test results.
 %   It takes the data for each group, the group names, and additional information such
 %   as the variable name and component being compared. The function plots the data
@@ -18,6 +10,14 @@ function [] = MyPlot(group1Data, group2Data, Groups, variableName, component, yl
 %   The t-test results, including the p-value, observed difference, and effect size, are
 %   displayed as a subtitle below the plot. The function provides insights into the data
 %   comparison between the two groups for a specific variable and component.
+%
+%   Inputs:
+%     group1Data - A column vector representing the data for group 1.
+%     group2Data - A column vector representing the data for group 2.
+%     Groups - A cell array containing the names of the two groups being compared.
+%     variableName - A string representing the name of the variable being compared.
+%     component - A string representing the component being compared.
+%     ylabelText - A string representing the label for the y-axis.
 %
 %   Note: This function generates a simple comparison plot with error bars, 
 %   comparing two groups (e.g., experimental vs. control) for a specific 
