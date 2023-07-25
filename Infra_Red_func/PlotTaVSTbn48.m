@@ -79,12 +79,6 @@ for i=1:2
             numMin=720;
     end
     cycle{i}=[];
-%     for j=1:beginT24(i)       % T24 for the first 3 days
-%         cycle{i}=[cycle{i},zeros(1,720),ones(1,720)];
-%     end
-%     for j=1:900     % cycle for rest of the days
-%         cycle{i}=[cycle{i},zeros(1,numMin),ones(1,numMin)];
-%     end
     for j=1:beginT24(i)       % T24 for the first 'beginT24' days
         cycle{i}=[cycle{i},zeros(1,720),ones(1,720)];
     end
@@ -139,6 +133,7 @@ for i=1:2
         if contains(T,'CT13') && nn>=beginT24(i)
             area(cycle2{i}(:,nn),'FaceColor',colors(1),'LineStyle','none');%yellow ereas
             area(cycle2{i}(1:numMin,nn),'FaceColor',colors(2),'LineStyle','none');%blue ereas
+            area(cycle2{i}(1440:1440+numMin,nn),'FaceColor',colors(2),'LineStyle','none');%blue ereas
         else
             area(cycle2{i}(:,nn),'FaceColor',colors(1),'LineStyle','none');%yellow ereas
         end

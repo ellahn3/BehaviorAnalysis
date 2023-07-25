@@ -23,16 +23,12 @@ function [] = MyPlot_rawData(DataGroup1, DataGroup2, Groups, TestType, component
 
 %% plotting the data points for each group with markers
 vecName=fieldnames(DataGroup1);
-% for i=1:length(vecName)
-%     v1=DataGroup1.(vecName{1});%water consum
-%     v2=DataGroup1.(vecName{2});%suger consum
-% 
-% 
-% end
-v1=[mean(DataGroup1.(vecName{1})),mean(DataGroup2.(vecName{2}))];
-v2=[mean(DataGroup1.(vecName{2})),mean(DataGroup2.(vecName{2}))];
+v1=[mean(DataGroup1.(vecName{1})),mean(DataGroup1.(vecName{2}))];
+v1_std=[std(DataGroup1.(vecName{1})),std(DataGroup1.(vecName{2}))];
+v2=[mean(DataGroup2.(vecName{1})),mean(DataGroup2.(vecName{2}))];
+v2_std=[std(DataGroup2.(vecName{1})),std(DataGroup2.(vecName{2}))];
 model_series=[v1;v2];
-model_error = [1 3;2 4]; 
+model_error = [v1_std;v2_std]; 
 % bar(y)
 b = bar(model_series, 'grouped');
 hold on
@@ -54,19 +50,10 @@ xlabel('Group');
 ylabel(ylabelText);
 legend(vecName)
 
-% % plotting the mean and standard deviation using error bars
-% e1 = errorbar(1.1, mean(group1Data), std(group1Data), 'o', 'MarkerSize', 10, 'LineWidth', 2, 'MarkerEdgeColor', '#A2142F');
-% e1.Color = '#A2142F';
-% e2 = errorbar(2.1, mean(group2Data), std(group2Data), 'o', 'MarkerSize', 10, 'LineWidth', 2, 'MarkerEdgeColor', '#0072BD');
-% e2.Color = '#0072BD';
 
 % plot title
 title1 = " " + TestType + " - " + component + " Comparison";
 title(title1, 'FontSize', 14);
 
-% performing a permutation t-test for the two groups and displaying the results as a subtitle
-% [p, observedDifference, effectSize] = permutationTest(group1Data, group2Data, 10000);
-% subtitleText2 = "p = " + num2str(p) + newline + "observed difference = " + num2str(observedDifference) + newline + "effect size = " + num2str(effectSize);
-% subtitle(subtitleText2, 'FontSize', 9);
 
 end
