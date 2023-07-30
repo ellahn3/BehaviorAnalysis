@@ -127,19 +127,19 @@ for i=1:2
     
     circdata{i}=smoothMeanT{i}';
     numreps = size(circdata{i},1);
-    axPos = fliplr(linspace(.04, .84, numreps)); %the axes hight are in range of 0.04-0.9
+    axPos = fliplr(linspace(.04, .9, numreps)); %the axes hight are in range of 0.04-0.9
     rowh = axPos(1) - axPos(2) - .005;
     Ymax = max(max(circdata{i}));
     
     f4=figure(i+10);
     set(f4, 'color', [1 1 1]);
-    %set(f4,'position',[50 0 380 750]);
+    set(f4,'position',[50 0 380 750]);
     set(gca,'XColor', 'none','YColor','none');
     hold on;
     cycle2{i}=cycle2{i}.*Ymax.*0.7;
     %create graph
     t= T+" Light cycle activity in "+numreps+" days";
-    title(t, 'Units', 'normalized', 'Position', [0.4, 1.05, 0])
+    title(t, 'Units', 'normalized', 'Position', [0.5, 1.05, 0])
     for nn=1:numreps
         ax=axes('Position',[.05 axPos(nn) .90 rowh],'Color','none',...
             'XTick',[],'YTick',[]); axis off; hold on;
