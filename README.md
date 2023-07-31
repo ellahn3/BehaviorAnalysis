@@ -2,15 +2,18 @@
 This project will help to do analysis for behavior tests
 ## Introduction
 Light plays a crucial role in the survival and well-being of various species, including humans. Apart from its obvious function in vision, light also influences numerous physiological processes, including biological rhythms, sleep, cognition, and mood. Understanding the impact of light on mood can potentially lead to the development of effective, non-invasive therapies for mood disorders.
+
 In Dr. Shai Sabbah's lab, our research focuses on investigating the relationship between light, brain activity, and mood. To induce a depressive state in mice, we manipulate their light environment by altering the light cycle. We utilize the concept of zeitgeber time (ZT), which is a standardized notation representing different phases in a circadian cycle. For instance, ZT 0 signifies the beginning of the day or light phase, while ZT 12 marks the start of the night or dark phase.
+
 To assess the behavioural effects of nighttime light exposure, we have established a murine LAN (light at night) paradigm. This involves subjecting the mice to 2 hours of blue light (~400 lux) between ZT 13 and ZT 15 (we are trying to mimic blue tv light at night). Control animals, on the other hand, experience a regular 12-hour light and 12-hour dark cycle. Following the manipulation of the light cycle without affecting the mice's circadian rhythm, we conduct a series of behavioural tests to evaluate their anxiety and depressive states. These tests include the sucrose preference test, elevated plus maze, open field test, and force swimming test.
 
-#### The objective of this project is to analyze and plot the results of the behavior tests and the activity of mice under specific light cycles. Key features that are required for this analysis and plotting include:
-
-The objective of this project is to analyses and plot the results of the behaviour tests and the activity of mice under specific light cycles. 
+#### The objective of this project is to analyze and plot the results of the behavior tests and the activity of mice under specific light cycles. 
 Key features that are required for this analysis and plotting include:
+
 1-The ability to select the desired light cycle for each light cabin and type of light (color) in cabin 2 (the only cabin that we have different light), as we continually utilize different cycles and type of light.
+
 2-Generating a general distinct plot for each behaviour test, enabling clear visualization and comparison of the data. The most powerful aspect of this part lies in its ability to adapt to diverse data structures without requiring major modifications. As long as the data is structured correctly, the apps functions can be used, making it a versatile and general tool for data analysis and comparison. Because we continually utilize different types of groups, we want to compare their behavior tests (light cycles, effect of drugs etc.).
+
 By effectively analysing and visualizing the behaviour test results and mouse activity in response to different light cycles, I aim to gain valuable insights into the connection between light, behaviour, and mood. To achieve this aim, I created a GUI for easy interaction with the codes I created.
 
 
