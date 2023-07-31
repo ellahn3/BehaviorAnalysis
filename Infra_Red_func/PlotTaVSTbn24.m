@@ -1,12 +1,14 @@
 function [] = PlotTaVSTbn24(data,Ta,Tb,beginT24,colors)
 % PlotTaVSTbn24 - Plots mean Ta and Tb for each light cycle against 24-hour periods.
 %
+%   PlotTaVSTbn24(data,Ta,Tb,beginT24,colors)
 %   The function takes data from the input table and performs preprocessing to
 %   select relevant columns and remove preceeding measurements before starting
 %   the cycle from 8 am. It then normalizes activity levels for each cycle separately.
 %   The function plots mean Ta and Tb for each light cycle with each row corresponding
 %   to 24 hours. It prepares the light cycle according to the specified Ta and Tb values.
-%   Parameters:
+%   
+% Parameters:
 %       data- table containing the data to be plotted.
 %       Ta- string representing the Ta light cycle.
 %       Tb- string representing the Tb light cycle.
@@ -35,7 +37,7 @@ dataM(1:startTime(1)-1,:)=[];         % remove all preceeding measurements in or
 datetimeM(1:startTime(1)-1,:)=[];         % remove all preceeding measurements in order to start the cycle from 8am
 
 %%%%%%%%%%%%%  Change according to the relevant light cycles %%%%%%%%%%%%%%
-%beginT24=0;                 % number of days with baseline T24 
+%beginT24=0;                 % number of days with baseline T24
 dataMTa=dataM(:,[6,9,10]);       % individual mice Ta
 dataMTb=dataM(:,[2,3,5]);       % individual mice Ta
 %take from file the relevent columns
@@ -59,7 +61,7 @@ for i=1:2
     %smoothMeanT{i}=smoothdata(meanT{i},'movmedian',60);
     smoothMeanT{i}=meanT{i};        %%%%% NO SMOOTHING %%%%%%%%%%%
     smoothMeanT{i}=reshape(smoothMeanT{i},1440,[]);    % for 24-h periods
-    
+
     if contains(T,'T7')
         numMin=210;
     elseif contains(T,'T6')
@@ -83,65 +85,68 @@ for i=1:2
     for j=1:beginT24(i)       % T24 for the first 'beginT24' days
         cycle{i}=[cycle{i},zeros(1,720),ones(1,720)];
     end
-    
+
     if contains(T,'T24')
         for j=1:900     % Ta for rest of the days
             cycle{i}=[cycle{i},zeros(1,numMin),ones(1,numMin)];
         end
 
-    
+
     elseif contains(T,'CT13')
-     for j=1:900     % Ta for rest of the days
-        %cycle{i}=[cycle{i},ones(1,numMin),zeros(1,60),ones(1,120),zeros(1,540)];
-        cycle{i}=[cycle{i},zeros(1,60),ones(1,120),zeros(1,540),ones(1,numMin)];    % for non-inverse cycle
-     end   
-     
-     elseif contains(T,'CT16')
-     for j=1:900     % Ta for rest of the days
-        %cycle{i}=[cycle{i},ones(1,numMin),zeros(1,60),ones(1,120),zeros(1,540)];
-        cycle{i}=[cycle{i},zeros(1,240),ones(1,120),zeros(1,360),ones(1,numMin)];    % for non-inverse cycle
-     end 
-        
-     elseif contains(T,'CT18')
-     for j=1:900     % Ta for rest of the days
-        %cycle{i}=[cycle{i},ones(1,numMin),zeros(1,360),ones(1,120),zeros(1,240)];
-        cycle{i}=[cycle{i},zeros(1,360),ones(1,120),zeros(1,240),ones(1,numMin)];   % for non-inverse cycle
-     end 
-     
-     elseif contains(T,'CT20')
-     for j=1:900     % Ta for rest of the days
-        %cycle{i}=[cycle{i},ones(1,numMin),zeros(1,480),ones(1,120),zeros(1,120)];
-        cycle{i}=[cycle{i},zeros(1,480),ones(1,120),zeros(1,120),ones(1,numMin)];   % for non-inverse cycle
-     end 
-        
-    else  
-        % for non-inverse light cycle 
         for j=1:900     % Ta for rest of the days
-        cycle{i}=[cycle{i},zeros(1,numMin),ones(1,numMin)];
+            %cycle{i}=[cycle{i},ones(1,numMin),zeros(1,60),ones(1,120),zeros(1,540)];
+            cycle{i}=[cycle{i},zeros(1,60),ones(1,120),zeros(1,540),ones(1,numMin)];    % for non-inverse cycle
         end
-        
+
+    elseif contains(T,'CT16')
+        for j=1:900     % Ta for rest of the days
+            %cycle{i}=[cycle{i},ones(1,numMin),zeros(1,60),ones(1,120),zeros(1,540)];
+            cycle{i}=[cycle{i},zeros(1,240),ones(1,120),zeros(1,360),ones(1,numMin)];    % for non-inverse cycle
+        end
+
+    elseif contains(T,'CT18')
+        for j=1:900     % Ta for rest of the days
+            %cycle{i}=[cycle{i},ones(1,numMin),zeros(1,360),ones(1,120),zeros(1,240)];
+            cycle{i}=[cycle{i},zeros(1,360),ones(1,120),zeros(1,240),ones(1,numMin)];   % for non-inverse cycle
+        end
+
+    elseif contains(T,'CT20')
+        for j=1:900     % Ta for rest of the days
+            %cycle{i}=[cycle{i},ones(1,numMin),zeros(1,480),ones(1,120),zeros(1,120)];
+            cycle{i}=[cycle{i},zeros(1,480),ones(1,120),zeros(1,120),ones(1,numMin)];   % for non-inverse cycle
+        end
+
+    else
+        % for non-inverse light cycle
+        for j=1:900     % Ta for rest of the days
+            cycle{i}=[cycle{i},zeros(1,numMin),ones(1,numMin)];
+        end
+
     end
-    
+
     cycle{i}(floor(n24*1440)+1:end)=[];
     cycle2{i}=reshape(cycle{i},1440,[]);
-    
+
     circdata{i}=smoothMeanT{i}';
     numreps = size(circdata{i},1);
-    axPos = fliplr(linspace(.04, .9, numreps)); %the axes hight are in range of 0.04-0.9
+    axPos = fliplr(linspace(.04, .84, numreps)); %the axes hight are in range of 0.04-0.9
     rowh = axPos(1) - axPos(2) - .005;
     Ymax = max(max(circdata{i}));
+
+
     
     f4=figure(i+10);
     set(f4, 'color', [1 1 1]);
-    set(f4,'position',[50 0 380 750]);
+    %set(f4,'position',[50 0 380 750]);
     set(gca,'XColor', 'none','YColor','none');
     hold on;
     cycle2{i}=cycle2{i}.*Ymax.*0.7;
     %create graph
     t= T+" Light cycle activity in "+numreps+" days";
     title(t, 'Units', 'normalized', 'Position', [0.5, 1.05, 0])
+
     for nn=1:numreps
-        ax=axes('Position',[.05 axPos(nn) .90 rowh],'Color','none',...
+        ax=axes('Position',[.13 axPos(nn) .77 rowh],'Color','none',...
             'XTick',[],'YTick',[]); axis off; hold on;
         if contains(T,'CT13') && nn>=beginT24(i)
             area(cycle2{i}(:,nn),'FaceColor',colors(1),'LineStyle','none');%yellow ereas
@@ -151,9 +156,9 @@ for i=1:2
         end
         axis(ax,'tight')
     end
-    
+
     for nn=1:numreps
-        axes('Position',[.05 axPos(nn) .90 rowh],'Color','none',...
+        axes('Position',[.13 axPos(nn) .77 rowh],'Color','none',...
             'XTick',[],'YTick',[]); axis off; hold on;
         bar(circdata{i}(nn,:),'k')
         set(gca,'YLim',[0 Ymax*0.65]);

@@ -1,12 +1,14 @@
 function [] = PlotTaVSTbn48(data,Ta,Tb,beginT24,colors)
 % PlotTaVSTbn48 - Plots mean Ta and Tb for each light cycle against 24-hour periods.
 %
+%   PlotTaVSTbn48(data,Ta,Tb,beginT24,colors)
 %   The function takes data from the input table and performs preprocessing to
 %   select relevant columns and remove preceeding measurements before starting
 %   the cycle from 8 am. It then normalizes activity levels for each cycle separately.
 %   The function plots mean Ta and Tb for each light cycle with each row corresponding
 %   to 24 hours. It prepares the light cycle according to the specified Ta and Tb values.
-%   Parameters:
+%   
+% Parameters:
 %       data- table containing the data to be plotted.
 %       Ta- string representing the Ta light cycle.
 %       Tb- string representing the Tb light cycle.
@@ -117,20 +119,20 @@ for i=1:2
     
     circdata=smoothMeanTr{i}';
     numreps = size(circdata,1);
-    axPos = fliplr(linspace(.04, .85, numreps));
+    axPos = fliplr(linspace(.05, .65, numreps));
     rowh = axPos(1) - axPos(2) - .005;
     Ymax = max(max(circdata));
-    %figure 6 and 7: T24 cycle for each closet
-    f4=figure(i+10);
-    set(f4, 'color', [1 1 1]);
-    %set(f4,'position',[50 0 380 750]);
+    % figure 6 and 7: T24 cycle for each closet
+    f6=figure(i+10);
+    set(f6, 'color', [1 1 1]);
+    %set(f6, 'position', [300 50 1050 500]); % ['start from right', 'start from bottom', 'finish left', 'finish top']
     set(gca,'XColor', 'none','YColor','none');
     hold on;
-    cycle2{i}=cycle2{i}.*Ymax.*0.7;
-    t= T+" Light cycle activity in "+numreps+" days";
+    t= T+" Light cycle activity in "+(numreps*2)+" days";
     title(t, 'Units', 'normalized', 'Position', [0.5, 1.05, 0])
+    cycle2{i}=cycle2{i}.*Ymax.*0.7;
     for nn=1:numreps
-        ax=axes('Position',[.05 axPos(nn) .90 rowh],'Color','none',...
+        ax=axes('Position',[.13 axPos(nn) .77 rowh],'Color','none',...
             'XTick',[],'YTick',[]); axis off; hold on;
         if contains(T,'CT13') && nn>=beginT24(i)
             area(cycle2{i}(:,nn),'FaceColor',colors(1),'LineStyle','none');%yellow ereas
@@ -143,12 +145,13 @@ for i=1:2
     end
     
     for nn=1:numreps
-        axes('Position',[.05 axPos(nn) .90 rowh],'Color','none',...
+        axes('Position',[.13 axPos(nn) .77 rowh],'Color','none',...
             'XTick',[],'YTick',[]); axis off; hold on;
         bar(circdata(nn,:),'k')
         set(gca,'YLim',[0 Ymax*0.7]);
     end
 end
-
-
+%%
 end
+
+
