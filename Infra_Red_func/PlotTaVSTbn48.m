@@ -23,7 +23,7 @@ function [] = PlotTaVSTbn48(data,Ta,Tb,beginT24,colors)
 %       readtable, reshape, smoothdata, max, find, contains, area, bar
 %
 %   Author: Ella Hanzin
-%   Version: 1.0
+%   Version: 11.0
 %   Last Updated: 09-Jul-2023
 
 %% prep for data analysis
