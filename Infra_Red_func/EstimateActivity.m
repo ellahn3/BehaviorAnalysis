@@ -13,8 +13,7 @@ function [] = EstimateActivity(dataT)
 %   Note: 'a.u.' stands for arbitrary units, as the data is assumed to be
 %   normalized before being passed to this function.
 %
-%   Author: Shai Sabbah 
-%   Editor: Ella Hanzin 
+%   Author: Ella Hanzin  
 %   Version: 4.0
 %   Last Updated: 02-07-2023
 

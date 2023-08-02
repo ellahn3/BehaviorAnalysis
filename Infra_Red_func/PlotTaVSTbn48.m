@@ -38,12 +38,8 @@ datetimeM(1:startTime(1)-1,:)=[];         % remove all preceeding measurements i
 
 
 %%%%%%%%%%%%%  Change according to the relevant light cycles %%%%%%%%%%%%%%
-%when you bave a base line of days that you had T24
-%beginT24=0;                 % number of days with baseline T24 
-
 dataMTa=dataM(:,[6,9,10]);       % individual mice Ta
 dataMTb=dataM(:,[2,3,5]);       % individual mice Tb
-
 dataT={dataMTa,dataMTb};
 
 
@@ -125,7 +121,6 @@ for i=1:2
     % figure 6 and 7: T24 cycle for each closet
     f6=figure(i+10);
     set(f6, 'color', [1 1 1]);
-    %set(f6, 'position', [300 50 1050 500]); % ['start from right', 'start from bottom', 'finish left', 'finish top']
     set(gca,'XColor', 'none','YColor','none');
     hold on;
     t= T+" Light cycle activity in "+(numreps*2)+" days";
@@ -151,7 +146,7 @@ for i=1:2
         set(gca,'YLim',[0 Ymax*0.7]);
     end
 end
-%%
+
 end
 
 

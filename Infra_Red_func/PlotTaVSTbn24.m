@@ -37,7 +37,6 @@ dataM(1:startTime(1)-1,:)=[];         % remove all preceeding measurements in or
 datetimeM(1:startTime(1)-1,:)=[];         % remove all preceeding measurements in order to start the cycle from 8am
 
 %%%%%%%%%%%%%  Change according to the relevant light cycles %%%%%%%%%%%%%%
-%beginT24=0;                 % number of days with baseline T24
 dataMTa=dataM(:,[6,9,10]);       % individual mice Ta
 dataMTb=dataM(:,[2,3,5]);       % individual mice Ta
 %take from file the relevent columns
@@ -94,25 +93,21 @@ for i=1:2
 
     elseif contains(T,'CT13')
         for j=1:900     % Ta for rest of the days
-            %cycle{i}=[cycle{i},ones(1,numMin),zeros(1,60),ones(1,120),zeros(1,540)];
             cycle{i}=[cycle{i},zeros(1,60),ones(1,120),zeros(1,540),ones(1,numMin)];    % for non-inverse cycle
         end
 
     elseif contains(T,'CT16')
         for j=1:900     % Ta for rest of the days
-            %cycle{i}=[cycle{i},ones(1,numMin),zeros(1,60),ones(1,120),zeros(1,540)];
             cycle{i}=[cycle{i},zeros(1,240),ones(1,120),zeros(1,360),ones(1,numMin)];    % for non-inverse cycle
         end
 
     elseif contains(T,'CT18')
         for j=1:900     % Ta for rest of the days
-            %cycle{i}=[cycle{i},ones(1,numMin),zeros(1,360),ones(1,120),zeros(1,240)];
             cycle{i}=[cycle{i},zeros(1,360),ones(1,120),zeros(1,240),ones(1,numMin)];   % for non-inverse cycle
         end
 
     elseif contains(T,'CT20')
         for j=1:900     % Ta for rest of the days
-            %cycle{i}=[cycle{i},ones(1,numMin),zeros(1,480),ones(1,120),zeros(1,120)];
             cycle{i}=[cycle{i},zeros(1,480),ones(1,120),zeros(1,120),ones(1,numMin)];   % for non-inverse cycle
         end
 
