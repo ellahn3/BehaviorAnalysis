@@ -69,6 +69,8 @@ for i=1:2
         numMin=270;
     elseif contains(T,'T24')
         numMin=720;
+    elseif contains(T,'T24LAN')
+        numMin=720;
     elseif contains(T,'CT13')
         numMin=720;
     elseif contains(T,'CT16')
@@ -91,6 +93,10 @@ for i=1:2
         end
 
 
+    elseif contains(T,'T24LAN')
+        for j=1:900     % Ta for rest of the days
+            cycle{i}=[cycle{i},zeros(1,60),ones(1,120),zeros(1,540),ones(1,numMin)];    % for non-inverse cycle
+        end
     elseif contains(T,'CT13')
         for j=1:900     % Ta for rest of the days
             cycle{i}=[cycle{i},zeros(1,60),ones(1,120),zeros(1,540),ones(1,numMin)];    % for non-inverse cycle
